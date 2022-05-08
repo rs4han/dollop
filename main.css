@@ -1,14 +1,16 @@
 
 html, body{
-    height: 100%;
+    height: 98%;
+    background-color: black;
+    color:rgb(195, 196, 199);
 }
 body {
-    font-size: 15vw;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: flex;
 }
 
 #flip {
+    font-size: 15vw;
     margin: auto;
     transition-duration: 1s;
 }
@@ -18,3 +20,10 @@ body {
     transition-duration: 1s;
 }
 
+footer {
+    font-size: 0.8rem;
+    position: absolute;
+    bottom: 0;
+    width: 98%;
+    text-align: center;
+}
