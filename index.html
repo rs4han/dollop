@@ -2,14 +2,26 @@
 <html>
 
 <head>
-	<title>U want a dollop today</title>
+	<title>u want a dollop today</title>
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
 <body>
-    <div class="flip">
-        pod
-    </div>
+    <span id="flip" onclick="gimme_another()">
+        dollop
+    </span>
 </body>
 
+<script>
+    var ambi_arr = ["pod", "dollop", 
+    "sos", "pod", "suns", "yeah", "swims"];
+
+    function gimme_another(){
+        var flip= document.getElementById('flip');
+        flip.innerText = ambi_arr[Math.floor(Math.random()*ambi_arr.length)];
+    }
+
+
+
+</script>
 </html>
