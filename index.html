@@ -2,8 +2,8 @@
 <html>
 
 <head>
-	<title>u want am ambigram today</title>
-	<link rel="stylesheet" type="text/css" href="main.css">
+  <title>u want am ambigram today</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
 <body>
@@ -15,12 +15,33 @@
 
 
 <script>
-    var ambi_arr = ["pod", "dollop", 
-    "sos", "pod", "suns", "yeah", "swims"];
+    var ambi_arr = ["pod", "dollop", "sos", "pod", "suns", "yeah", "swims"];
+    var last_index = 1;
 
     function gimme_another(){
-        var flip= document.getElementById('flip');
-        flip.innerText = ambi_arr[Math.floor(Math.random()*ambi_arr.length)];
+        var flip = document.getElementById('flip');
+        var currentStyle = window.getComputedStyle(flip);
+
+        // a transform is applied on hover for screen widths > 768px
+        // This is a rough approximation for desktops
+        if (currentStyle.transform != 'none') {
+            flip.innerText = ambi_arr[randomIndex()];
+            if (flip.style.transform != '') {
+                flip.style.transform = 'none';
+            }
+        }
+        else {
+            flip.style.transform = 'rotateZ(180deg)';
+        }
+    }
+
+    function randomIndex() {
+        var index = last_index;
+        while (index === last_index) {
+            index = Math.floor(Math.random()*ambi_arr.length)
+        }
+        last_index = index;
+        return index;
     }
 
 
