@@ -2,8 +2,41 @@
 <html>
 
 <head>
-  <title>u want am ambigram today</title>
-  <link rel="stylesheet" type="text/css" href="main.css">
+    <title>u want am ambigram today</title>
+    <style>
+        html, body{
+            height: 98%;
+            background-color: black;
+            color:rgb(195, 196, 199);
+        }
+        body {
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            display: flex;
+        }
+        
+        #flip {
+            font-size: 15vw;
+            margin: auto;
+            transition-duration: 1s;
+        }
+        
+        footer {
+            font-size: 1em;
+            position: absolute;
+            bottom: 0;
+            width: 98%;
+            text-align: center;
+        }
+        
+        @media (min-width: 768px) {
+            #flip:hover {
+                color: rgb(195, 196, 200);
+                transform: rotateZ(180deg);
+                transform-origin: center;
+                transition-duration: 1s;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -17,6 +50,7 @@
 <script>
     var ambi_arr = ["pod", "dollop", "sos", "pod", "suns", "yeah", "swims"];
     var last_index = 1;
+    var in_mobile = window.getComputedStyle(flip).transform != 'none';
 
     function gimme_another(){
         var flip = document.getElementById('flip');
@@ -26,7 +60,7 @@
         // This is a rough approximation for desktops
         if (currentStyle.transform != 'none') {
             flip.innerText = ambi_arr[randomIndex()];
-            if (flip.style.transform != '') {
+            if (in_mobile) {
                 flip.style.transform = 'none';
             }
         }
@@ -43,8 +77,5 @@
         last_index = index;
         return index;
     }
-
-
-
 </script>
 </html>
