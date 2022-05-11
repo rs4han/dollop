@@ -15,8 +15,9 @@
         }
         
         #flip {
-            font-size: 15vw;
+            font-size: 20vw;
             margin: auto;
+            padding: 0px;
             transition-duration: 1s;
         }
         
@@ -28,9 +29,12 @@
             text-align: center;
         }
         
-        @media (min-width: 768px) {
+        @media (min-width: 1268px) {
+            span#flip {
+                padding: 1px;
+                font-size: 15vw;
+            }
             #flip:hover {
-                color: rgb(195, 196, 200);
                 transform: rotateZ(180deg);
                 transform-origin: center;
                 transition-duration: 1s;
@@ -50,11 +54,11 @@
 <script>
     var ambi_arr = ["pod", "dollop", "sos", "pod", "suns", "yeah", "swims"];
     var last_index = 1;
-    var in_mobile = window.getComputedStyle(flip).transform != 'none';
 
     function gimme_another(){
         var flip = document.getElementById('flip');
         var currentStyle = window.getComputedStyle(flip);
+        var in_mobile = currentStyle.padding[0] == 0;
 
         // a transform is applied on hover for screen widths > 768px
         // This is a rough approximation for desktops
@@ -65,7 +69,7 @@
             }
         }
         else {
-            flip.style.transform = 'rotateZ(180deg)';
+            flip.style.transform = 'rotateZ(-180deg)';
         }
     }
 
